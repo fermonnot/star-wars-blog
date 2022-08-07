@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
-import { Demo } from "./views/demo";
+import { CharacterDetail } from "./views/CharacterDetail.jsx";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
@@ -24,7 +24,7 @@ const Layout = () => {
           <Routes>
             <Route path="/" element={<Home />} />
 
-            <Route path="/demo" element={<Demo />} />
+            <Route path="/Character" element={<CharacterDetail />} />
             <Route path="/single/:theid" element={<Single />} />
             <Route path="*" element={<h1>Not found 404</h1>} />
           </Routes>

@@ -1,0 +1,26 @@
+.cardScroller{
+    overflow-x: scroll;
+    
+}
+.people{
+    width: 280px;
+    justify-content: space-between;
+}
+.planet{
+    width: 280px;
+    justify-content: space-between;
+}
+.pic{
+    width: 250px;
+    height: 300px;  
+}
+.like{
+    margin-left: 13px;
+    background-color: rgb(236, 236, 226);
+    color: black;
+    border-color: black;
+}
+like:hover{
+    background-color: black;
+}
+

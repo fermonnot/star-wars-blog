@@ -1,22 +1,37 @@
+import { element } from "prop-types";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			character:[],
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
-			deimian: ["uno", "dos"]
+			character: [],
+			urlBase: "https://www.swapi.tech/api",
+			secondPoint: ["people", "planets"],
+			people: [],
+			planets: [],
 		},
 		actions: {
+
+			getCharacter: async () => {
+				const store = getStore()
+				try {
+					store.secondPoint.forEach(async (element) => {
+						let response = await fetch(`${store.urlBase}/${element}`)
+						let data = await response.json();					
+						data.results.forEach(async (item) => {
+							let responseTwo = await fetch(`${store.urlBase}/${element}/${item.uid}`)
+							let results = await responseTwo.json();
+						
+							setStore({...store, [element]:[...store[element], results.result]});
+						});
+					})
+
+					// if (response.ok) {
+					// 	setStore({...store,character: data.results});
+					// };
+				} catch (error) {
+					console.log(error)
+				};
+			},
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
