@@ -9,11 +9,11 @@ import { Link } from "react-router-dom";
 // my New components//
 
 
-export const Home = () => {
+export const Home = (character) => {
 
 
 	const { store, actions } = useContext(Context);
-	// const {name, gender, hair_color, eye_color} = character.properties
+	// const {name, gender, hair_color, eye_color} = character.properties()
 
 
 
@@ -33,7 +33,7 @@ export const Home = () => {
 										<b>Hair color </b>{character.properties.hair_color}<br />
 										<b>Eyes Color </b>{character.properties.eye_color}</p>									
 									<div className="buttons">
-										< Link to={"/demo"} className="btn btn-primary">Learn More!</Link>
+										< Link to={`/character/${character.uid}`} className="btn btn-primary">Learn More!</Link>
 										<button className="btn btn-primary like" type="button"><i className="far fa-heart"></i></button>
 									</div>
 								</div>
@@ -53,7 +53,7 @@ export const Home = () => {
 									<p className="card-text"><b>Diameter</b> {planet.properties.diameter}<br />
 										<b>Population</b> {planet.properties.population}</p>							
 									<div className="buttons">
-										<a href="#" className="btn btn-primary">Learn More!</a>
+										< Link to={`/planet/${planet.uid}`} className="btn btn-primary">Learn More!</Link>
 										<button className="btn btn-primary like" type="button"><i className="far fa-heart"></i></button>
 									</div>
 								</div>
