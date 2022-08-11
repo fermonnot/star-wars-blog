@@ -1,0 +1,13 @@
+.description{
+    width: 100%;
+    border-top: 2px solid red;
+    padding: 5px;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.imag{
+    justify-content: space-around;
+}
+.text {
+    width: 100%;   
+}

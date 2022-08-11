@@ -7,7 +7,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			secondPoint: ["people", "planets"],
 			people: JSON.parse(localStorage.getItem("people")) || [],
 			planets: JSON.parse(localStorage.getItem("planets")) || [],
-			favorites:[]
+			favorites:[],
+			newFavorites:[],
+			newFav:[],
 		},
 		actions: {
 
@@ -39,11 +41,42 @@ const getState = ({ getStore, getActions, setStore }) => {
 				
 			},
 			
-			saveFavorite:(data) => {
+			saveFavorite:(id) => {
+	
 				let store= getStore();
-				// let exist= store.favorites.find((item)=> )
+				let exist= store.favorites.find((item)=> item._id == id)
+				if(!exist) {
+					for (let secondPoint of store.secondPoint) {
+						for(let endPoint of store[secondPoint]) {
+							if(endPoint._id == id) {
+								setStore({
+									...store,
+									favorites: [...store.favorites, endPoint]
+								})
+							}
+						}
+					}
+				} else{
+					let newFavorites= store.favorites.filter((item) => item._id != id)
+					setStore({
+						...store,
+						favorites: newFavorites
+					}); 
+				} 
 
-			}
+			},
+			
+			deleteFav: (id) =>{						
+				let store= getStore()
+				let newFav= store.favorites.filter((item) => item._id != id)
+				setStore({
+					...store,
+					favorites: newFav
+				}); 
+			},
+
+			
+
 		
 
 				

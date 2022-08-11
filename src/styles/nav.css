@@ -2,3 +2,10 @@
     width: 10px;
     height: 10px;
 }
+.favL{
+    justify-content: space-around;
+    align-items: center;      
+}
+.close:hover{
+    color: rgb(37, 37, 155);
+}

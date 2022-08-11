@@ -1,7 +1,7 @@
 .cardScroller{
     overflow-x: scroll;
-    
-    
+    margin-top: 10px;  
+    margin-bottom: 10px; 
 }
 .people{
     width: 280px;
@@ -17,11 +17,11 @@
 }
 .like{
     margin-left: 13px;
-    background-color: rgb(236, 236, 226);
+    background-color: white;
     color: black;
     border-color: black;
 }
-like:hover{
+.like:hover{
     background-color: black;
 }
 
