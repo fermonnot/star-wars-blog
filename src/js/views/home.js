@@ -22,7 +22,7 @@ export const Home = () => {
 					{store.people.map((character) => {
 						return (
 							<div key={character._id} className="card people mx-2" >
-								<img src="https://www.1999.co.jp/itbig46/10464740.jpg"
+								<img src={`https://starwars-visualguide.com/assets/img/characters/${character.uid}.jpg`}
 									className="card-img-top pic" alt="..." />
 								<div className="card-body">
 									<h5 className="card-title">{character.properties.name}</h5>
@@ -47,8 +47,15 @@ export const Home = () => {
 				{store.planets.map((planet) => {
 						return (
 							<div key={planet._id} className="card planet" >
-								<img src="https://www.1999.co.jp/itbig46/10464740.jpg"
+								{planet.uid==1?
+								<img src={`https://starwars-visualguide.com/assets/img/planets/${Math.floor(Math.random()*10+2)}.jpg`}
+								className="card-img-top pic" alt="..." />:
+								<img src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`}
 									className="card-img-top pic" alt="..." />
+								
+							
+							}
+								
 								<div className="card-body">
 									<h5 className="card-title">{planet.properties.name}</h5>
 									<p className="card-text"><b>Diameter</b> {planet.properties.diameter}<br />
